@@ -124,3 +124,10 @@ test('external links open in new tab safely', () => {
     assert.ok(m[0].includes('target="_blank"') && m[0].includes('rel="noopener"'), m[0]);
   }
 });
+
+test('robots and sitemap point to mopm.tw', () => {
+  const robots = readFileSync(new URL('../robots.txt', import.meta.url), 'utf8');
+  const sitemap = readFileSync(new URL('../sitemap.xml', import.meta.url), 'utf8');
+  assert.ok(robots.includes('Sitemap: https://mopm.tw/sitemap.xml'));
+  assert.ok(sitemap.includes('<loc>https://mopm.tw/</loc>'));
+});
