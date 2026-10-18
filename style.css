@@ -3,7 +3,7 @@
   --surface: #FFFFFF;
   --ink: #0F1B2A;
   --ink-2: #4A5A6B;
-  --ink-3: #6B7A8A;
+  --ink-3: #5A6878;
   --line: #DFE5EB;
   --brand: #0F2A44;
   --accent: #0E8C88;
@@ -73,7 +73,7 @@ h2 [lang="en"], dt [lang="en"], .badge [lang="en"], .cta [lang="en"] { display: 
 
 .wrap { max-width: 880px; margin: 0 auto; padding: 48px 16px 32px; }
 
-.masthead .eyebrow { margin: 0 0 8px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.masthead .eyebrow { margin: 0 0 8px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--tag-ink); font-weight: 700; }
 .masthead h1 { margin: 0; font-size: clamp(26px, 6vw, 38px); line-height: 1.25; color: var(--brand); }
 .masthead .h1-en { margin: 4px 0 0; font-size: clamp(15px, 3.4vw, 18px); color: var(--ink-2); }
 .intro { margin-top: 20px; max-width: 70ch; }
@@ -120,7 +120,7 @@ h2 { font-size: 20px; margin: 0 0 16px; }
 .meta p + p { color: var(--ink-2); font-size: 15px; }
 .links { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
 .links a { font-size: 14px; text-decoration: none; white-space: nowrap; color: var(--ink-2); }
-.links a:hover, .links a:focus-visible { color: var(--accent); text-decoration: underline; }
+.links a:hover, .links a:focus-visible { color: var(--tag-ink); text-decoration: underline; }
 .tag { display: inline-block; margin-right: 4px; padding: 1px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; background: var(--tag-bg); color: var(--tag-ink); }
 .tag-muted { background: var(--muted-bg); color: var(--muted-ink); }
 .note { margin: 14px 0 0; font-size: 13px; color: var(--ink-3); }

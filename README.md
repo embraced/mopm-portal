@@ -20,9 +20,10 @@ python3 -m http.server 8080   # 本機預覽
 
 1. 用瀏覽器開 `https://www.mopmtaiwan.com/`。如果內容已不是 2025，刪掉 2025 的官網連結，只留存檔。JSON-LD 2025 的 `url` 改成存檔網址。
 2. `index.html`：把 `#current` 卡片換成新的一屆（年份、屆次、日期、地點、主辦、官網）。
+   同時改 `<head>` 的 `<meta name="description">`、`og:title`、`og:description`，因為它們寫著本屆年份與官網。
 3. `index.html`：在歷屆列表最上面加一列上一屆。連結用原網址（`20xx.mopm.tw` 不拆，本身就是存檔），連結類型「官網」。
 4. `index.html`：JSON-LD 的 `subEvent` 最前面加新的一屆。新的一屆加 `eventStatus`，上一屆的 `eventStatus` 刪掉。
-5. `tests/page.test.mjs`：更新年份、日期、`#current` 的 `data-year` 與網址清單。
+5. `tests/page.test.mjs`：更新 `ROWS`（逐列的主辦、日期、地點、標籤、連結）、JSON-LD 日期與網址清單。
 6. `sitemap.xml`：更新 `lastmod`。
 7. 執行 `npm test` 與 `bash scripts/check-links.sh`，都要通過。
 8. commit、push `main`。部署後開 `https://mopm.tw/` 確認。
