@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
-const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+const html = readFileSync(new URL('../public/index.html', import.meta.url), 'utf8');
 const SERIES = 'Multiomics and Precision Medicine Joint Conference (MOPM)';
 
 const jsonLd = () => {
@@ -126,8 +126,8 @@ test('external links open in new tab safely', () => {
 });
 
 test('robots and sitemap point to mopm.tw', () => {
-  const robots = readFileSync(new URL('../robots.txt', import.meta.url), 'utf8');
-  const sitemap = readFileSync(new URL('../sitemap.xml', import.meta.url), 'utf8');
+  const robots = readFileSync(new URL('../public/robots.txt', import.meta.url), 'utf8');
+  const sitemap = readFileSync(new URL('../public/sitemap.xml', import.meta.url), 'utf8');
   assert.ok(robots.includes('Sitemap: https://mopm.tw/sitemap.xml'));
   assert.ok(sitemap.includes('<loc>https://mopm.tw/</loc>'));
 });
@@ -204,7 +204,7 @@ const lum = (hex) => {
 const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
 
 test('light-mode text colors meet WCAG AA on the page background', () => {
-  const css = readFileSync(new URL('../style.css', import.meta.url), 'utf8');
+  const css = readFileSync(new URL('../public/style.css', import.meta.url), 'utf8');
   const root = css.slice(0, css.indexOf('@media'));
   const v = (n) => root.match(new RegExp(`--${n}:\\s*(#[0-9A-Fa-f]{6})`))[1];
   for (const n of ['ink', 'ink-2', 'ink-3', 'tag-ink']) assert.ok(ratio(v(n), v('bg')) >= 4.5, `${n} ${ratio(v(n), v('bg')).toFixed(2)}`);

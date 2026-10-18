@@ -1,0 +1,6 @@
+// Cloudflare Workers 靜態站。只上傳 public/，因為根目錄還有 README、tests、scripts，部署時也會出現 node_modules。
+{
+  "name": "mopm-portal",
+  "compatibility_date": "2026-10-01",
+  "assets": { "directory": "./public" }
+}
