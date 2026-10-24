@@ -24,6 +24,7 @@ python3 -m http.server 8080 -d public   # 本機預覽
    同時改 `<head>` 的 `<meta name="description">`、`og:title`、`og:description`，因為它們寫著本屆年份與官網。
 3. `public/index.html`：在歷屆列表最上面加一列上一屆。連結用原網址（`20xx.mopm.tw` 不拆，本身就是存檔），連結類型「官網」，標籤用 `tag tag-muted`（醒目色只留給本屆卡片，測試會檢查）。
 4. `public/index.html`：JSON-LD 的 `subEvent` 最前面加新的一屆。新的一屆加 `eventStatus`，上一屆的 `eventStatus` 刪掉。
+   每一屆都要有 `description`（屆次、主辦學會、地點）與 `organizer.url`（照頂層 `organizer` 的網址）。Google Search Console 會把缺這兩個欄位的項目列為改善項目，測試也會檢查。
 5. `tests/page.test.mjs`：更新 `ROWS`（逐列的主辦、日期、地點、標籤、連結）、JSON-LD 日期與網址清單。
 6. `public/sitemap.xml`：更新 `lastmod`。
 7. 執行 `npm test` 與 `bash scripts/check-links.sh`，都要通過。

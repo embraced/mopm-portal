@@ -210,3 +210,12 @@ test('light-mode text colors meet WCAG AA on the page background', () => {
   for (const n of ['ink', 'ink-2', 'ink-3', 'tag-ink']) assert.ok(ratio(v(n), v('bg')) >= 4.5, `${n} ${ratio(v(n), v('bg')).toFixed(2)}`);
   assert.match(css, /\.masthead \.eyebrow \{[^}]*color: var\(--tag-ink\)/);
 });
+
+test('every subEvent has a description and an organizer url (GSC Event enhancements)', () => {
+  const s = jsonLd();
+  const urlOf = Object.fromEntries(s.organizer.map((o) => [o.name, o.url]));
+  for (const e of s.subEvent) {
+    assert.ok(e.description?.includes(e.organizer.name), `${e.startDate} description names the host`);
+    assert.equal(e.organizer.url, urlOf[e.organizer.name], `${e.startDate} organizer url`);
+  }
+});
